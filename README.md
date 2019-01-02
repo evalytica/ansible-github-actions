@@ -18,7 +18,7 @@ action "filter-to-pr-open-synced" {
 }
 
 action "ansible-lint" {
-  uses = "evalytica/ansible-github-actions/lint@v0.1.0"
+  uses = "evalytica/ansible-github-actions/lint@0.1.0"
   needs = "filter-to-pr-open-synced"
   secrets = ["GITHUB_TOKEN"]
   env = {
