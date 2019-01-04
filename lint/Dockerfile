@@ -9,7 +9,9 @@ LABEL "repository"="https://github.com/evalytica/ansible-github-actions"
 LABEL "homepage"="https://github.com/evalytica/ansible-github-actions"
 LABEL "maintainer"="Alex Harden <alex.harden@veradigmhealth.com>"
 
-RUN apk --no-cache add jq
+RUN apk --no-cache add \
+    jq \
+    curl
 
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
