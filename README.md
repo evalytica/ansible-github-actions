@@ -1,6 +1,6 @@
 # Ansible GitHub Actions
 
-This provides a GitHub Action for linting Ansible code.
+This provides a GitHub Action for linting Ansible code.  Other actions may be added in the future.
 
 ## Getting Started
 
@@ -18,7 +18,7 @@ action "filter-to-pr-open-synced" {
 }
 
 action "ansible-lint" {
-  uses = "evalytica/ansible-github-actions/lint@0.1.0"
+  uses = "evalytica/ansible-github-actions/lint@0.2.0"
   needs = "filter-to-pr-open-synced"
   secrets = ["GITHUB_TOKEN"]
   env = {
@@ -35,4 +35,4 @@ Add a GitHub Secret named `ANSIBLE_VAULT_PASSWORD` to the action with the Ansibl
 
 ### Lint Action
 
-Runs `ansible-lint` against all playbooks.
+Runs `ansible-lint` against all playbooks.  `ansible-lint` can be tuned using a [configuration file](https://docs.ansible.com/ansible-lint/configuring/configuring.html#configuration-file) located in the same directory as the playbooks.
