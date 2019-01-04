@@ -31,7 +31,6 @@ set -e
 FMT_OUTPUT=""
 for file in $LINT_FILES; do
 LINT_OUTPUT=$(ansible-lint --force-color "$file")
-if [ ! -z "$LINT_OUTPUT" -a "$LINT_OUTPUT" != " " ]; then
 FMT_OUTPUT="$FMT_OUTPUT
 <details><summary><code>$file</code></summary>
 \`\`\`diff
@@ -39,7 +38,6 @@ $LINT_OUTPUT
 \`\`\`
 </details>
 "
-fi
 done
 
 COMMENT="#### \`ansible-lint\` Failed
