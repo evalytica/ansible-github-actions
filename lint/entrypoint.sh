@@ -25,11 +25,10 @@ cd "${ANSIBLE_ACTION_WORKING_DIR:-.}"
 set +e
 LINT_FILES=$(sh -c 'find . -maxdepth 1 -name "*.yml"' 2>&1)
 echo "$LINT_FILES"
-set -e
 
 # iterate through each playbook with linting suggestions and build up a comment
 FMT_OUTPUT=""
-for file in $LINT_FILES; do
+for file in $(echo $LINT_FILES | tr " " "\n"); do
 LINT_OUTPUT=$(ansible-lint --force-color "$file")
 FMT_OUTPUT="$FMT_OUTPUT
 <details><summary><code>$file</code></summary>
@@ -39,6 +38,7 @@ $LINT_OUTPUT
 </details>
 "
 done
+set -e
 
 COMMENT="#### \`ansible-lint\` Failed
 $FMT_OUTPUT
