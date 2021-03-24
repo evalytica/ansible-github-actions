@@ -1,4 +1,4 @@
-FROM yokogawa/ansible-lint:v4.1.0
+FROM yokogawa/ansible-lint:v4.3.7
 
 LABEL "com.github.actions.name"="ansible-lint"
 LABEL "com.github.actions.description"="Check Ansible playbooks for practices and behavior that could potentially be improved."
